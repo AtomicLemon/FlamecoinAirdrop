@@ -1,22 +1,17 @@
 const TelegramBot = require('node-telegram-bot-api');
 var config = require('./config')
-var firebase = require('firebase')
-
-var firebase_config = config.firebase_config;
 var token = config.token;
-firebase.initializeApp(firebase_config);
 
 const bot = new TelegramBot(token, {polling: true});
-const img_url = 'https://cryptoverze-0m5mfism.netdna-ssl.com/wp-content/uploads/2018/04/cryptocurrency-airdrop-2.png'
 var t_username = '';
 var u_email = '';
 var e_wallet = '';
 
 bot.onText(/\/start/, (msg) => {
-    bot.sendPhoto(msg.chat.id,img_url,{caption : "Welcome to Domeno Airdrop! 😍😍 \nPlease join our community and get 100 token.\n \n "}).then(() => {
+    bot.sendPhoto(msg.chat.id,img_url,{caption : "Welcome to the Flamecoin Airdrop Dashboard!\n \n "}).then(() => {
         var option = {
             "reply_markup": {
-                "keyboard": [["1. Join the Domeno Telegram group", "2. Your Telegram Username"],   ["3. E-mail address" , "4. ETH address (No exchange wallet!)"]]
+                "keyboard": [["1. Join the Flame.Exchange Telegram group", "2. Your Telegram Username"],   ["3. E-mail address" , "4. ETH address (No exchange wallet!)"]]
                 }
         };
         bot.sendMessage(msg.chat.id,"Airdrop Rules ⚔️⚔️\n 1. Join the Domeno Telegram group \n 2. Your Telegram Username \n 3. E-mail address \n 4. ETH address (No exchange wallet!) \n",option);
